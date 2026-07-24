@@ -301,26 +301,26 @@ function App() {
           <div className="w-full max-w-3xl">
               <p className="eyebrow">Ingeniero de software</p>
             <h1 className="font-display text-5xl font-bold leading-[0.95] tracking-[-0.06em] text-[#101827] sm:text-7xl">Jhonnathan Ocampo</h1>
-            <p className="mt-5 font-display text-2xl font-semibold tracking-[-0.04em] text-[#5180c2] sm:text-3xl">Ingeniero de Software Backend</p>
+            <p className="mt-5 font-display text-2xl font-semibold tracking-[-0.04em] text-[#172033] sm:text-3xl">Ingeniero de Software Backend</p>
             <p className="mt-7 max-w-2xl text-lg leading-8 text-[#4e5a6c]">Experiencia desarrollando APIs REST, sistemas distribuidos, aplicaciones cloud-native y automatización de procesos con Python, Java, TypeScript, AWS, Docker y Kubernetes.</p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Button href="#proyectos">Ver proyectos <ArrowDown size={16} /></Button>
               <Button href="/Jhonnathan-Ocampo-CV.pdf" variant="secondary" download>Descargar CV <Download size={16} /></Button>
               <Button href={`mailto:${profile.email}`} variant="secondary">Hablemos <Mail size={16} /></Button>
-              <a href={profile.github} target="_blank" rel="noreferrer" className="inline-flex items-center justify-center gap-2 rounded-full px-4 py-3 text-sm font-bold text-[#315784] transition hover:bg-[#d9e4f2]">GitHub <ArrowUpRight size={16} /></a>
+              <a href={profile.github} target="_blank" rel="noreferrer" className="inline-flex items-center justify-center gap-2 rounded-full border border-[#d9e4f2] bg-white px-4 py-3 text-sm font-bold text-[#172033] transition hover:bg-[#f7f9fc]">GitHub <ArrowUpRight size={16} /></a>
             </div>
             <div className="mt-10 flex flex-wrap gap-2.5 text-sm font-bold">
-              <span className="rounded-full bg-[#e4f2e9] px-4 py-2 text-[#27704a]">Backend focus</span>
-              <span className="rounded-full bg-[#d9e4f2] px-4 py-2 text-[#315784]">Español nativo</span>
-              <span className="rounded-full bg-[#fff1cb] px-4 py-2 text-[#8a5a00]">Inglés B2</span>
-              <span className="inline-flex items-center gap-2 rounded-full bg-white px-4 py-2 text-[#566274]"><span className="size-2 rounded-full bg-[#32919a]" /> Medellín, Colombia</span>
+              <span className="rounded-full border border-[#d9e4f2] bg-white px-4 py-2 text-[#566274]">Backend focus</span>
+              <span className="rounded-full border border-[#d9e4f2] bg-white px-4 py-2 text-[#566274]">Español nativo</span>
+              <span className="rounded-full border border-[#d9e4f2] bg-white px-4 py-2 text-[#566274]">Inglés B2</span>
+              <span className="rounded-full border border-[#d9e4f2] bg-white px-4 py-2 text-[#566274]">Medellín, Colombia</span>
             </div>
           </div>
         </section>
 
         <section id="sobre-mi" className="relative scroll-mt-28 px-6 py-24 sm:py-32">
-          <SectionIntro eyebrow="Perfil técnico" title="Áreas de trabajo.">
-            Backend y APIs · Sistemas distribuidos · Cloud y DevOps · Calidad de software
+          <SectionIntro eyebrow="Perfil profesional" title="Perfil técnico.">
+            Ingeniero de Software con experiencia profesional desarrollando soluciones escalables en backend, aplicaciones cloud-native y sistemas distribuidos. Diseño APIs REST, arquitecturas basadas en microservicios, pipelines CI/CD e integraciones de IA con Python, Java, TypeScript, AWS, Docker y Kubernetes.
           </SectionIntro>
           <div className="mx-auto mt-14 max-w-6xl rounded-3xl border border-[#e7edf5] bg-white p-5 sm:p-8">
             <p className="mb-5 font-display text-lg font-bold tracking-[-0.03em]">Tecnologías usadas en los proyectos</p>
