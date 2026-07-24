@@ -162,6 +162,7 @@ const projects = [
     impact: 'Implementa métodos numéricos y devuelve resultados, iteraciones, valores de función y error absoluto.',
     tags: ['Python', 'Django', 'Análisis numérico', 'Interpolación'],
     link: 'https://github.com/Jhonnathan93/numerical-analysis-calculator',
+    demo: 'https://numerical-analysis-calculator.vercel.app/',
     color: 'bg-[#f8ffd9]',
     accent: 'bg-[#e2ff58]',
   },
