@@ -1,0 +1,18 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Stack Sans Text", sans-serif;
+  --font-body: "Quicksand", sans-serif;
+}
+
+@layer base {
+  html { scroll-behavior: smooth; }
+  body { @apply m-0 bg-[#f7f9fc] font-body text-[#172033] antialiased; }
+  ::selection { @apply bg-[#9eb8dd] text-[#172033]; }
+}
+
+@layer utilities {
+  .surface { @apply rounded-3xl border border-white/80 bg-white/75 shadow-[0_14px_46px_rgba(30,58,96,0.08)] backdrop-blur-sm; }
+  .eyebrow { @apply mb-3 inline-flex items-center gap-2 rounded-full bg-[#e0eff0] px-3 py-1 text-xs font-bold tracking-[0.12em] text-[#21757d] uppercase; }
+  .section-title { @apply font-display text-4xl font-bold tracking-[-0.045em] text-[#101827] sm:text-5xl; }
+}
