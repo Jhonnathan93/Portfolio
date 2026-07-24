@@ -10,6 +10,11 @@ export type Project = {
   accent: string
 }
 
+export type TechnologyGroup = {
+  title: string
+  technologies: string[]
+}
+
 export type LanguageContent = {
   code: 'es' | 'en'
   navigation: { profile: string; projects: string; experience: string; contact: string }
@@ -18,11 +23,11 @@ export type LanguageContent = {
     getInTouch: string; github: string; backendFocus: string; nativeSpanish: string; englishB2: string; location: string
   }
   profile: { eyebrow: string; title: string; description: string; technologiesTitle: string }
-  technologies: string[]
+  technologyGroups: TechnologyGroup[]
   projectsSection: { eyebrow: string; title: string; description: string; label: string; repository: string; site: string }
   projects: Project[]
   experienceSection: { eyebrow: string; title: string; description: string }
-  experience: { period: string; role: string; company: string; description: string; detail: string }[]
+  experience: { period: string; role: string; company: string; description: string; achievements: string[] }[]
   education: string
   contact: { eyebrow: string; title: string; description: string; write: string }
   footer: { copyright: string; backToTop: string }
@@ -35,8 +40,8 @@ export const es: LanguageContent = {
   navigation: { profile: 'Perfil técnico', projects: 'Proyectos', experience: 'Experiencia', contact: 'Contacto' },
   hero: {
     eyebrow: 'Ingeniero de software',
-    role: 'Software Engineer',
-    description: 'Construyo sistemas backend escalables, aplicaciones cloud-native y software impulsado por IA.',
+    role: 'Backend Software Engineer',
+    description: 'Construyo sistemas backend listos para producción, arquitecturas distribuidas y productos impulsados por IA.',
     viewProjects: 'Ver proyectos', downloadCv: 'Descargar CV', getInTouch: 'Hablemos', github: 'GitHub',
     backendFocus: 'Enfoque backend', nativeSpanish: 'Español nativo', englishB2: 'Inglés B2', location: 'Medellín, Colombia',
   },
@@ -45,7 +50,15 @@ export const es: LanguageContent = {
     description: 'EAFIT · Python · Java · Cloud · AWS · Microservicios. Diseño sistemas distribuidos, APIs y pipelines de entrega con foco en calidad, seguridad y mantenibilidad.',
     technologiesTitle: 'Tech Stack',
   },
-  technologies: ['Python', 'Java', 'TypeScript', 'JavaScript', 'Spring Boot', 'Django', 'FastAPI', 'Next.js', 'Vue', 'React', 'PostgreSQL', 'MongoDB', 'MySQL', 'Redis', 'RabbitMQ', 'gRPC', 'AWS', 'Docker', 'Kubernetes', 'GitHub Actions', 'CI/CD', 'Git', 'REST API', 'OpenAPI', 'OAuth', 'JWT'],
+  technologyGroups: [
+    { title: 'Lenguajes', technologies: ['Python', 'Java', 'TypeScript', 'JavaScript'] },
+    { title: 'Backend', technologies: ['Spring Boot', 'Django', 'FastAPI', 'REST API', 'OpenAPI', 'OAuth', 'JWT'] },
+    { title: 'Frontend', technologies: ['Next.js', 'Vue', 'React'] },
+    { title: 'Cloud y DevOps', technologies: ['AWS', 'Docker', 'Kubernetes', 'GitHub Actions', 'CI/CD', 'Git'] },
+    { title: 'Mensajería', technologies: ['RabbitMQ', 'gRPC'] },
+    { title: 'Bases de datos', technologies: ['PostgreSQL', 'MongoDB', 'MySQL', 'Redis'] },
+    { title: 'IA', technologies: ['LLM Providers'] },
+  ],
   projectsSection: { eyebrow: 'Proyectos', title: 'Proyectos académicos y personales.', description: 'Aplicaciones web, sistemas distribuidos, automatización y proyectos de datos e inteligencia artificial.', label: 'Proyecto', repository: 'Ver repositorio', site: 'Ver sitio' },
   projects: [
     { title: 'BookNexus', subtitle: 'Recomendaciones de libros con IA', description: 'Plataforma Django que integra LLMs y Google Books API para descubrir libros de forma inteligente.', impact: 'Arquitectura por capas, autenticación, listas de lectura y reportes.', tags: ['Django', 'LLMs', 'Docker', 'GitHub Actions'], link: 'https://github.com/Jhonnathan93/integrating-project-1', demo: 'https://integrating-project-1.vercel.app/book/', color: 'bg-[#d9e4f2]', accent: 'bg-[#5180c2]' },
@@ -61,11 +74,11 @@ export const es: LanguageContent = {
   ],
   experienceSection: { eyebrow: 'Experiencia', title: 'Experiencia profesional.', description: 'Desarrollo de software, automatización de procesos y trabajo en equipos Agile.' },
   experience: [
-    { period: 'Jul. 2025 - Ene. 2026', role: 'Practicante de Ingeniería de Software', company: 'ISA Energía Colombia', description: 'Automaticé la ingesta de datos de objetos técnicos a SAP mediante una aplicación interna, reduciendo un 88,9 % el tiempo de procesamiento manual.', detail: 'Diseñé pipelines ETL para limpiar, transformar y visualizar datos que apoyan decisiones de mantenimiento de la red de transmisión eléctrica.' },
-    { period: 'Jul. 2024 - Jun. 2025', role: 'Desarrollador de Software Junior', company: 'Universidad EAFIT', description: 'Construí funcionalidades full-stack para sistemas de análisis urbano: APIs REST, interfaces web y despliegues contenerizados.', detail: 'Colaboré en un equipo Scrum usando Git, Docker y CI/CD para mejorar la calidad, disponibilidad y mantenibilidad de las aplicaciones.' },
+    { period: 'Jul. 2025 - Ene. 2026', role: 'Practicante de Ingeniería de Software', company: 'ISA Energía Colombia', description: 'Automatización de datos operativos para flujos críticos de mantenimiento.', achievements: ['Reduje en 88,9 % el tiempo de procesamiento al automatizar la ingesta de datos de equipos hacia SAP.', 'Desarrollé una aplicación interna para estandarizar la carga de información operativa.', 'Diseñé procesos ETL para limpiar, transformar y visualizar datos que aceleran decisiones de mantenimiento.', 'Modernicé código legado para mejorar estabilidad y compatibilidad tecnológica.'] },
+    { period: 'Jul. 2024 - Jun. 2025', role: 'Desarrollador de Software Junior', company: 'Universidad EAFIT', description: 'Desarrollo full-stack para sistemas de planificación y análisis urbano.', achievements: ['Implementé funcionalidades con Django, Vue.js, Docker y APIs REST.', 'Diseñé APIs REST para integración de servicios internos, priorizando escalabilidad y mantenibilidad.', 'Contenericé aplicaciones con Docker para estandarizar despliegues entre desarrollo y producción.', 'Colaboré en equipos Agile Scrum con prácticas de CI/CD.'] },
   ],
   education: 'Formación: Ingeniería de Sistemas, Universidad EAFIT (2022 - 2026) · Técnica en Desarrollo de Software, CESDE (2020 - 2022).',
-  contact: { eyebrow: 'Contacto', title: 'Contacto', description: 'Estoy abierto a conversar sobre oportunidades y proyectos de software.', write: 'Escríbeme' },
+  contact: { eyebrow: '¿Buscas un Software Engineer?', title: 'Construyamos algo juntos.', description: 'Estoy disponible para conversar sobre sistemas backend, productos cloud-native e IA aplicada.', write: 'Escríbeme' },
   footer: { copyright: 'Todos los derechos reservados.', backToTop: 'Volver arriba' },
   languageSwitch: 'Cambiar idioma a inglés',
   accessibility: { primaryNavigation: 'Navegación principal', mobileNavigation: 'Navegación móvil', github: 'GitHub de Jhonnathan', linkedin: 'LinkedIn de Jhonnathan', menu: 'Abrir menú' },
