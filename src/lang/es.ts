@@ -43,9 +43,9 @@ export const es: LanguageContent = {
   profile: {
     eyebrow: 'Perfil profesional', title: 'Perfil técnico.',
     description: 'Ingeniero de Software con experiencia profesional desarrollando soluciones escalables en backend, aplicaciones cloud-native y sistemas distribuidos. Diseño APIs REST, arquitecturas basadas en microservicios, pipelines CI/CD e integraciones de IA con Python, Java, TypeScript, AWS, Docker y Kubernetes.',
-    technologiesTitle: 'Tecnologías usadas en los proyectos',
+    technologiesTitle: 'Tech Stack',
   },
-  technologies: ['Python', 'Java', 'Spring Boot', 'FastAPI', 'Django REST', 'React', 'Next.js', 'Vue', 'Laravel', 'PostgreSQL', 'MongoDB', 'RabbitMQ', 'gRPC', 'AWS', 'Docker', 'Kubernetes', 'GitHub Actions', 'TensorFlow'],
+  technologies: ['Python', 'Java', 'TypeScript', 'JavaScript', 'Spring Boot', 'Django', 'FastAPI', 'Next.js', 'Vue', 'React', 'PostgreSQL', 'MongoDB', 'MySQL', 'Redis', 'RabbitMQ', 'gRPC', 'AWS', 'Docker', 'Kubernetes', 'GitHub Actions', 'CI/CD', 'Git', 'REST API', 'OpenAPI', 'OAuth', 'JWT'],
   projectsSection: { eyebrow: 'Proyectos', title: 'Proyectos académicos y personales.', description: 'Aplicaciones web, sistemas distribuidos, automatización y proyectos de datos e inteligencia artificial.', label: 'Proyecto', repository: 'Ver repositorio', site: 'Ver sitio' },
   projects: [
     { title: 'BookNexus', subtitle: 'Recomendaciones de libros con IA', description: 'Plataforma Django que integra LLMs y Google Books API para descubrir libros de forma inteligente.', impact: 'Arquitectura por capas, autenticación, listas de lectura y reportes.', tags: ['Django', 'LLMs', 'Docker', 'GitHub Actions'], link: 'https://github.com/Jhonnathan93/integrating-project-1', demo: 'https://integrating-project-1.vercel.app/book/', color: 'bg-[#d9e4f2]', accent: 'bg-[#5180c2]' },
