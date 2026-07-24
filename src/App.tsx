@@ -195,6 +195,10 @@ function App() {
           <div className="mx-auto mt-10 flex max-w-4xl items-center gap-4 rounded-2xl bg-[#172033] px-6 py-5 text-white"><GraduationCap className="shrink-0 text-[#ffbd0e]" size={25} /><p className="text-sm leading-6 text-[#d9e4f2]">{content.education}</p></div>
         </section>
 
+        <section className="px-6 pb-24 sm:pb-32">
+          <OutsideSoftware language={content.code} />
+        </section>
+
         <section id="contacto" className="scroll-mt-24 px-6 pb-24 pt-8 sm:pb-32">
           <div className="mx-auto max-w-6xl overflow-hidden rounded-[2rem] bg-[#5180c2] px-6 py-14 text-center text-white sm:px-14 sm:py-20">
             <p className="mb-4 inline-flex items-center gap-2 rounded-full bg-white/15 px-3 py-1 text-xs font-bold tracking-[0.12em] uppercase"><BriefcaseBusiness size={14} /> {content.contact.eyebrow}</p>
@@ -324,6 +328,11 @@ function ProjectCard({ project, labels, language }: { project: Project; labels: 
 
 function ExperienceCard({ period, role, company, description, achievements, last }: LanguageContent['experience'][number] & { last: boolean }) {
   return <article className="surface grid gap-5 p-6 sm:grid-cols-[170px_1fr] sm:p-8"><div><span className="inline-flex rounded-full bg-[#fff1cb] px-3 py-1.5 text-xs font-bold text-[#8a5a00]">{period}</span></div><div><h3 className="font-display text-xl font-bold tracking-[-0.04em]">{role}</h3><p className="mt-1 text-sm font-bold text-[#5180c2]">{company}</p><p className="mt-4 text-sm font-semibold leading-6 text-[#4e5a6c]">{description}</p><ul className="mt-4 grid gap-2.5">{achievements.map((achievement) => <li key={achievement} className="flex gap-2.5 text-sm leading-6 text-[#566274]"><span className="mt-2 size-1.5 shrink-0 rounded-full bg-[#5180c2]" />{achievement}</li>)}</ul>{!last && <div className="mt-6 h-px bg-[#e7edf5] sm:hidden" />}</div></article>
+}
+
+function OutsideSoftware({ language }: { language: 'es' | 'en' }) {
+  const es = language === 'es'
+  return <div className="mx-auto grid max-w-6xl items-center gap-8 rounded-3xl border border-[#e7edf5] bg-white p-5 sm:p-8 lg:grid-cols-[1fr_.9fr]"><div className="px-2 py-4 sm:px-5"><p className="eyebrow">{es ? 'Más allá del software' : 'Outside software'}</p><h2 className="section-title">{es ? 'La curiosidad también se construye fuera de la pantalla.' : 'Curiosity is built beyond the screen, too.'}</h2><p className="mt-5 max-w-xl text-base leading-7 text-[#566274]">{es ? 'Disfruto el voluntariado, compartir con animales, practicar Ultimate Frisbee, hacer senderismo y construir side projects centrados en arquitectura de software.' : 'I enjoy volunteering, spending time with animals, playing Ultimate Frisbee, hiking, and building side projects focused on software architecture.'}</p></div><div className="grid grid-cols-[.9fr_1.1fr] gap-3"><img src="/Animales%201.JPEG" alt={es ? 'Jhonnathan compartiendo con animales' : 'Jhonnathan spending time with animals'} className="h-64 w-full rounded-2xl object-cover object-center" /><img src="/Voluntariado%203.JPEG" alt={es ? 'Jhonnathan realizando voluntariado y pintura' : 'Jhonnathan volunteering and painting'} className="h-64 w-full rounded-2xl object-cover object-center" /></div></div>
 }
 
 export default App
