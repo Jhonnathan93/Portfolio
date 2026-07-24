@@ -3,6 +3,7 @@ import {
   ArrowUpRight,
   BriefcaseBusiness,
   Code2,
+  Download,
   ExternalLink,
   GitFork,
   GraduationCap,
@@ -178,11 +179,13 @@ function Button({
   children,
   variant = 'primary',
   className = '',
+  download = false,
 }: {
   href: string
   children: React.ReactNode
   variant?: 'primary' | 'secondary' | 'light'
   className?: string
+  download?: boolean
 }) {
   const styles = variant === 'primary'
     ? 'bg-[#5180c2] text-white shadow-[0_10px_20px_rgba(81,128,194,0.25)] hover:bg-[#426eac]'
@@ -193,6 +196,7 @@ function Button({
   return (
     <a
       href={href}
+      download={download}
       className={`inline-flex items-center justify-center gap-2 rounded-full px-5 py-3 text-sm font-bold transition duration-200 ${styles} ${className}`}
     >
       {children}
@@ -276,6 +280,7 @@ function App() {
             <p className="mt-7 max-w-2xl text-lg leading-8 text-[#4e5a6c]">Experiencia desarrollando APIs REST, sistemas distribuidos, aplicaciones cloud-native y automatización de procesos con Python, Java, TypeScript, AWS, Docker y Kubernetes.</p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Button href="#proyectos">Ver proyectos <ArrowDown size={16} /></Button>
+              <Button href="/Jhonnathan-Ocampo-CV.pdf" variant="secondary" download>Descargar CV <Download size={16} /></Button>
               <Button href={`mailto:${profile.email}`} variant="secondary">Hablemos <Mail size={16} /></Button>
               <a href={profile.github} target="_blank" rel="noreferrer" className="inline-flex items-center justify-center gap-2 rounded-full px-4 py-3 text-sm font-bold text-[#315784] transition hover:bg-[#d9e4f2]">GitHub <ArrowUpRight size={16} /></a>
             </div>
