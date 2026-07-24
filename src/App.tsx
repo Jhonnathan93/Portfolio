@@ -2,19 +2,34 @@ import {
   ArrowDown,
   ArrowUpRight,
   BriefcaseBusiness,
-  Code2,
   Download,
   ExternalLink,
   GitFork,
   GraduationCap,
-  Layers3,
   Link,
   Mail,
   Menu,
-  ServerCog,
+  Network,
   X,
 } from 'lucide-react'
 import { useState } from 'react'
+import type { IconType } from 'react-icons'
+import { FaAws, FaDocker, FaJava, FaPython } from 'react-icons/fa6'
+import {
+  SiDjango,
+  SiFastapi,
+  SiGithubactions,
+  SiKubernetes,
+  SiLaravel,
+  SiMongodb,
+  SiNextdotjs,
+  SiPostgresql,
+  SiRabbitmq,
+  SiReact,
+  SiSpringboot,
+  SiTensorflow,
+  SiVuedotjs,
+} from 'react-icons/si'
 
 const profile = {
   name: 'Jhonnathan Ocampo',
@@ -24,17 +39,27 @@ const profile = {
   github: 'https://github.com/Jhonnathan93',
 }
 
-const skills = [
-  { label: 'Python', tone: 'bg-[#d9e4f2] text-[#315784]' },
-  { label: 'Java & Spring', tone: 'bg-[#fff1cb] text-[#8a5a00]' },
-  { label: 'FastAPI & Django REST', tone: 'bg-[#e0eff0] text-[#21757d]' },
-  { label: 'React, Next.js & Vue', tone: 'bg-[#e6e4f6] text-[#57479d]' },
-  { label: 'Laravel', tone: 'bg-[#ffe4cf] text-[#a24b13]' },
-  { label: 'PostgreSQL & MongoDB', tone: 'bg-[#e4f2e9] text-[#27704a]' },
-  { label: 'RabbitMQ & gRPC', tone: 'bg-[#f9e2eb] text-[#9e4268]' },
-  { label: 'AWS', tone: 'bg-[#fff1cb] text-[#8a5a00]' },
-  { label: 'Docker & Kubernetes', tone: 'bg-[#d9e4f2] text-[#315784]' },
-  { label: 'CI/CD', tone: 'bg-[#e0eff0] text-[#21757d]' },
+type TechnologyIcon = IconType | typeof Network
+
+const technologies: { label: string; icon: TechnologyIcon }[] = [
+  { label: 'Python', icon: FaPython },
+  { label: 'Java', icon: FaJava },
+  { label: 'Spring Boot', icon: SiSpringboot },
+  { label: 'FastAPI', icon: SiFastapi },
+  { label: 'Django REST', icon: SiDjango },
+  { label: 'React', icon: SiReact },
+  { label: 'Next.js', icon: SiNextdotjs },
+  { label: 'Vue', icon: SiVuedotjs },
+  { label: 'Laravel', icon: SiLaravel },
+  { label: 'PostgreSQL', icon: SiPostgresql },
+  { label: 'MongoDB', icon: SiMongodb },
+  { label: 'RabbitMQ', icon: SiRabbitmq },
+  { label: 'gRPC', icon: Network },
+  { label: 'AWS', icon: FaAws },
+  { label: 'Docker', icon: FaDocker },
+  { label: 'Kubernetes', icon: SiKubernetes },
+  { label: 'GitHub Actions', icon: SiGithubactions },
+  { label: 'TensorFlow', icon: SiTensorflow },
 ]
 
 const projects = [
@@ -82,8 +107,8 @@ const projects = [
     tags: ['Laravel', 'MySQL', 'Docker', 'Supabase'],
     link: 'https://github.com/Jhonnathan93/PlantShop',
     demo: 'https://plant-shop-sigma-lake.vercel.app/',
-    color: 'bg-[#e4f2e9]',
-    accent: 'bg-[#32919a]',
+    color: 'bg-[#f4f5da]',
+    accent: 'bg-[#b3b604]',
   },
   {
     title: 'Sistema Multiagente',
@@ -93,8 +118,8 @@ const projects = [
     impact: 'Versionado de artefactos, logs por ejecución, aprobación o rechazo y flujos orquestados con n8n.',
     tags: ['FastAPI', 'Vue', 'n8n', 'PostgreSQL'],
     link: 'https://github.com/Jhonnathan93/Multi-agent-challenge',
-    color: 'bg-[#e6e4f6]',
-    accent: 'bg-[#6d5caf]',
+    color: 'bg-[#e9e9f4]',
+    accent: 'bg-[#9999e5]',
   },
   {
     title: 'Parallelism in a Controlled Environment',
@@ -104,8 +129,8 @@ const projects = [
     impact: 'Mide tiempo de ejecución y uso de memoria, usando bloques para simular una gestión de memoria paginada.',
     tags: ['C', 'Python', 'Paralelismo', 'CSV'],
     link: 'https://github.com/Jhonnathan93/Parallelism-in-a-Controlled-Environment',
-    color: 'bg-[#ffe4cf]',
-    accent: 'bg-[#e07b39]',
+    color: 'bg-[#f4d3d0]',
+    accent: 'bg-[#ff6a51]',
   },
   {
     title: 'RPC + MOM Communication System',
@@ -115,8 +140,8 @@ const projects = [
     impact: 'API Gateway, gRPC, RabbitMQ, WebSockets, MongoDB, Docker Swarm y monitoreo con Grafana.',
     tags: ['FastAPI', 'gRPC', 'RabbitMQ', 'Docker Swarm'],
     link: 'https://github.com/alejoriosm04/rpc-mom-comm',
-    color: 'bg-[#f9e2eb]',
-    accent: 'bg-[#b55c80]',
+    color: 'bg-[#e0eff0]',
+    accent: 'bg-[#32919a]',
   },
   {
     title: 'InsightIQ',
@@ -137,8 +162,8 @@ const projects = [
     impact: 'Implementa métodos numéricos y devuelve resultados, iteraciones, valores de función y error absoluto.',
     tags: ['Python', 'Django', 'Análisis numérico', 'Interpolación'],
     link: 'https://github.com/Jhonnathan93/numerical-analysis-calculator',
-    color: 'bg-[#fff1cb]',
-    accent: 'bg-[#ffbd0e]',
+    color: 'bg-[#f8ffd9]',
+    accent: 'bg-[#e2ff58]',
   },
   {
     title: 'English News Summarization',
@@ -148,8 +173,8 @@ const projects = [
     impact: 'Encoder-decoder LSTM con atención, embeddings de spaCy y generación con greedy decoding y beam search.',
     tags: ['Python', 'TensorFlow', 'Keras', 'NLP'],
     link: 'https://github.com/Jhonnathan93/Applied-ML',
-    color: 'bg-[#e0eff0]',
-    accent: 'bg-[#32919a]',
+    color: 'bg-[#d9e4f2]',
+    accent: 'bg-[#5180c2]',
   },
 ]
 
@@ -217,7 +242,7 @@ function SectionIntro({ eyebrow, title, children }: { eyebrow: string; title: st
 function Header() {
   const [open, setOpen] = useState(false)
   const links = [
-    { href: '#sobre-mi', label: 'Sobre mí' },
+    { href: '#sobre-mi', label: 'Perfil técnico' },
     { href: '#proyectos', label: 'Proyectos' },
     { href: '#experiencia', label: 'Experiencia' },
     { href: '#contacto', label: 'Contacto' },
@@ -294,18 +319,13 @@ function App() {
         </section>
 
         <section id="sobre-mi" className="relative scroll-mt-28 px-6 py-24 sm:py-32">
-          <SectionIntro eyebrow="Perfil" title="Backend, cloud y calidad de software.">
-            Desarrollo APIs, aplicaciones cloud-native y procesos automatizados. Trabajo con arquitectura por capas, microservicios, pruebas y CI/CD.
+          <SectionIntro eyebrow="Perfil técnico" title="Áreas de trabajo.">
+            Backend y APIs · Sistemas distribuidos · Cloud y DevOps · Calidad de software
           </SectionIntro>
-          <div className="mx-auto mt-14 grid max-w-6xl gap-5 md:grid-cols-3">
-            <InfoCard icon={<ServerCog />} title="Backend" description="APIs REST, autenticación y lógica de negocio con Python, Java y arquitecturas desacopladas." color="bg-[#d9e4f2] text-[#315784]" />
-            <InfoCard icon={<Layers3 />} title="Cloud & DevOps" description="Contenedores, CI/CD e infraestructura cloud para despliegue y operación." color="bg-[#e0eff0] text-[#21757d]" />
-            <InfoCard icon={<Code2 />} title="Calidad de software" description="Pruebas, análisis estático y automatización como parte natural del ciclo de desarrollo." color="bg-[#fff1cb] text-[#8a5a00]" />
-          </div>
-          <div className="mx-auto mt-8 max-w-6xl rounded-3xl border border-[#e7edf5] bg-white p-6 sm:p-8">
-            <p className="mb-5 font-display text-lg font-bold tracking-[-0.03em]">Tecnologías con las que trabajo</p>
-            <div className="flex flex-wrap gap-2.5">
-              {skills.map((skill) => <span key={skill.label} className={`rounded-xl px-4 py-2.5 text-sm font-bold ${skill.tone}`}>{skill.label}</span>)}
+          <div className="mx-auto mt-14 max-w-6xl rounded-3xl border border-[#e7edf5] bg-white p-5 sm:p-8">
+            <p className="mb-5 font-display text-lg font-bold tracking-[-0.03em]">Tecnologías usadas en los proyectos</p>
+            <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
+              {technologies.map((technology) => <TechnologyCard key={technology.label} {...technology} />)}
             </div>
           </div>
         </section>
@@ -355,8 +375,8 @@ function App() {
   )
 }
 
-function InfoCard({ icon, title, description, color }: { icon: React.ReactNode; title: string; description: string; color: string }) {
-  return <article className="surface p-6"><div className={`mb-6 grid size-11 place-items-center rounded-xl ${color}`}>{icon}</div><h3 className="font-display text-xl font-bold tracking-[-0.04em]">{title}</h3><p className="mt-3 text-sm leading-6 text-[#566274]">{description}</p></article>
+function TechnologyCard({ icon: Icon, label }: { icon: TechnologyIcon; label: string }) {
+  return <div className="flex min-h-28 flex-col items-center justify-center gap-3 rounded-2xl border border-[#e7edf5] bg-[#f7f9fc] px-3 py-4 text-center transition hover:border-[#9eb8dd] hover:bg-white"><Icon size={28} className="text-[#172033]" aria-hidden="true" /><span className="text-xs font-bold text-[#3d4a5e]">{label}</span></div>
 }
 
 function ProjectCard({ title, subtitle, description, impact, tags, link, demo, color, accent }: (typeof projects)[number]) {
@@ -364,7 +384,7 @@ function ProjectCard({ title, subtitle, description, impact, tags, link, demo, c
     <article className="group overflow-hidden rounded-3xl border border-[#e7edf5] bg-white shadow-[0_14px_46px_rgba(30,58,96,0.06)]">
       <div className={`${color} relative min-h-48 overflow-hidden p-7`}>
         <div className={`absolute -right-6 -top-10 size-40 rounded-full ${accent} opacity-20`} />
-        <div className={`absolute -bottom-10 left-8 size-28 rounded-full border-[18px] ${accent.replace('bg-', 'border-')} opacity-30`} />
+        <div className={`absolute -bottom-10 left-8 size-28 rounded-full ${accent} opacity-20`} />
         <div className="relative flex h-full flex-col justify-between">
           <span className="w-fit rounded-full bg-white/80 px-3 py-1.5 text-xs font-bold text-[#172033]">Proyecto</span>
           <div><p className="font-display text-3xl font-bold tracking-[-0.05em] text-[#101827]">{title}</p><p className="mt-1 text-sm font-bold text-[#4e5a6c]">{subtitle}</p></div>
