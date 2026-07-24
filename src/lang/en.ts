@@ -4,14 +4,14 @@ export const en: LanguageContent = {
   code: 'en',
   navigation: { profile: 'Technical profile', projects: 'Projects', experience: 'Experience', contact: 'Contact' },
   hero: {
-    eyebrow: 'Software engineer', role: 'Backend Software Engineer',
-    description: 'Experience developing REST APIs, distributed systems, cloud-native applications, and process automation with Python, Java, TypeScript, AWS, Docker, and Kubernetes.',
+    eyebrow: 'Software engineer', role: 'Software Engineer',
+    description: 'Building scalable backend systems, cloud-native applications, and AI-powered software.',
     viewProjects: 'View projects', downloadCv: 'Download CV', getInTouch: 'Get in touch', github: 'GitHub',
     backendFocus: 'Backend focus', nativeSpanish: 'Native Spanish', englishB2: 'English B2', location: 'Medellín, Colombia',
   },
   profile: {
-    eyebrow: 'Professional profile', title: 'Technical profile.',
-    description: 'Software Engineer with professional experience building scalable backend solutions, cloud-native applications, and distributed systems. I design REST APIs, microservice architectures, CI/CD pipelines, and AI integrations using Python, Java, TypeScript, AWS, Docker, and Kubernetes.',
+    eyebrow: 'Professional profile', title: 'Backend software engineering.',
+    description: 'EAFIT · Python · Java · Cloud · AWS · Microservices. I design distributed systems, APIs, and delivery pipelines with a focus on quality, security, and maintainability.',
     technologiesTitle: 'Tech Stack',
   },
   technologies: ['Python', 'Java', 'TypeScript', 'JavaScript', 'Spring Boot', 'Django', 'FastAPI', 'Next.js', 'Vue', 'React', 'PostgreSQL', 'MongoDB', 'MySQL', 'Redis', 'RabbitMQ', 'gRPC', 'AWS', 'Docker', 'Kubernetes', 'GitHub Actions', 'CI/CD', 'Git', 'REST API', 'OpenAPI', 'OAuth', 'JWT'],

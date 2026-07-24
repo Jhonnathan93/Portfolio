@@ -1,7 +1,9 @@
 import {
   ArrowDown,
   ArrowUpRight,
+  Boxes,
   BriefcaseBusiness,
+  Check,
   Download,
   ExternalLink,
   GitFork,
@@ -151,6 +153,7 @@ function App() {
             <h1 className="font-display text-5xl font-bold leading-[0.95] tracking-[-0.06em] text-[#101827] sm:text-7xl">{profile.name}</h1>
             <p className="mt-5 font-display text-2xl font-semibold tracking-[-0.04em] text-[#172033] sm:text-3xl">{content.hero.role}</p>
             <p className="mt-7 max-w-2xl text-lg leading-8 text-[#4e5a6c]">{content.hero.description}</p>
+            <p className="mt-6 font-display text-base font-bold tracking-[-0.02em] text-[#315784]">Python <span className="mx-1 text-[#9eb8dd]">•</span> Java <span className="mx-1 text-[#9eb8dd]">•</span> Spring Boot <span className="mx-1 text-[#9eb8dd]">•</span> FastAPI <span className="mx-1 text-[#9eb8dd]">•</span> AWS</p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Button href="#proyectos">{content.hero.viewProjects} <ArrowDown size={16} /></Button>
               <Button href="/Jhonnathan-Ocampo-CV.pdf" variant="secondary" download>{content.hero.downloadCv} <Download size={16} /></Button>
@@ -174,8 +177,10 @@ function App() {
         </section>
 
         <section id="proyectos" className="scroll-mt-24 bg-white/60 px-6 py-24 sm:py-32">
-          <SectionIntro eyebrow={content.projectsSection.eyebrow} title={content.projectsSection.title}>{content.projectsSection.description}</SectionIntro>
-          <div className="mx-auto mt-14 grid max-w-6xl gap-6 lg:grid-cols-2">{content.projects.map((project) => <ProjectCard key={project.title} project={project} labels={content.projectsSection} />)}</div>
+          <SectionIntro eyebrow={content.projectsSection.eyebrow} title={content.code === 'es' ? 'Ingeniería aplicada.' : 'Applied engineering.'}>{content.code === 'es' ? 'Sistemas diseñados con foco en calidad, arquitectura, resiliencia y despliegue reproducible.' : 'Systems designed with a focus on quality, architecture, resilience, and reproducible delivery.'}</SectionIntro>
+          <FeaturedProject language={content.code} project={content.projects[0]} labels={content.projectsSection} />
+          <div className="mx-auto mt-20 max-w-6xl"><p className="eyebrow">{content.code === 'es' ? 'Más proyectos' : 'More projects'}</p><h3 className="font-display text-3xl font-bold tracking-[-0.045em] text-[#101827]">{content.code === 'es' ? 'Sistemas, plataformas y experimentos.' : 'Systems, platforms, and experiments.'}</h3><div className="mt-8 grid gap-6 lg:grid-cols-2">{content.projects.slice(1).filter((project) => !['Sistema Multiagente', 'Multi-agent System', 'InsightIQ', 'English News Summarization'].includes(project.title)).map((project) => <ProjectCard key={project.title} project={project} labels={content.projectsSection} />)}</div></div>
+          <AiProjects language={content.code} projects={content.projects} labels={content.projectsSection} />
         </section>
 
         <section id="experiencia" className="scroll-mt-24 px-6 py-24 sm:py-32">
@@ -200,6 +205,51 @@ function App() {
 
 function TechnologyCard({ icon: Icon, label }: { icon: TechnologyIcon; label: string }) {
   return <div className="flex min-h-28 flex-col items-center justify-center gap-3 rounded-2xl border border-[#e7edf5] bg-[#f7f9fc] px-3 py-4 text-center transition hover:border-[#9eb8dd] hover:bg-white"><Icon size={28} className="text-[#172033]" aria-hidden="true" /><span className="text-xs font-bold text-[#3d4a5e]">{label}</span></div>
+}
+
+function FeaturedProject({ language, project, labels }: { language: 'es' | 'en'; project: Project; labels: LanguageContent['projectsSection'] }) {
+  const es = language === 'es'
+  const qualitySignals = es
+    ? ['Ruff, mypy y validación de configuración', 'Semgrep, Gitleaks, pip-audit y Trivy', 'Cobertura de ramas ≥ 85 % y SonarCloud', 'Imagen no-root, health check y procedencia']
+    : ['Ruff, mypy, and configuration validation', 'Semgrep, Gitleaks, pip-audit, and Trivy', '≥ 85% branch coverage and SonarCloud', 'Non-root image, health check, and provenance']
+
+  return <article className="group mx-auto mt-14 max-w-6xl overflow-hidden rounded-3xl border border-[#e7edf5] bg-white shadow-[0_14px_46px_rgba(30,58,96,0.06)]">
+    <div className="grid lg:grid-cols-[1.05fr_.95fr]">
+      <div className={`${project.color} relative overflow-hidden p-7 sm:p-10`}>
+        <div className={`absolute -right-8 -top-12 size-48 rounded-full ${project.accent} opacity-20`} /><div className={`absolute -bottom-12 left-10 size-32 rounded-full ${project.accent} opacity-20`} />
+        <div className="relative"><p className="eyebrow bg-white/80">{es ? 'Proyecto destacado' : 'Featured project'}</p>
+        <h3 className="mt-4 font-display text-5xl font-bold tracking-[-0.06em] text-[#101827] sm:text-6xl">{project.title}</h3>
+        <p className="mt-3 max-w-xl text-lg font-bold text-[#3d4a5e]">{es ? 'Plataforma de descubrimiento y recomendación de libros con IA, diseñada con calidad y entrega segura como requisitos de producto.' : 'AI-powered book discovery and recommendation platform, built with quality and secure delivery as product requirements.'}</p>
+        <p className="mt-6 max-w-xl text-sm leading-7 text-[#4e5a6c]">{es ? 'Aísla las operaciones de escritura, consultas y proveedores externos para mantener el dominio testeable. Las integraciones con Google Books, LLMs y correo se prueban sin depender de servicios externos.' : 'It isolates write operations, queries, and external providers to keep the domain testable. Google Books, LLM, and email integrations are tested without relying on external services.'}</p>
+        <div className="mt-7 flex flex-wrap gap-2">{['Layered architecture', 'CI/CD', 'SAST', 'Docker', 'LLM providers'].map((tag) => <span key={tag} className="rounded-md bg-white/70 px-2.5 py-1 text-xs font-bold text-[#566274]">{tag}</span>)}</div>
+        <div className="mt-7 grid grid-cols-3 gap-2"><Metric value="76" label={es ? 'pruebas' : 'tests'} /><Metric value="85%" label={es ? 'cobertura mínima' : 'coverage gate'} /><Metric value="35" label={es ? 'rutas revisadas' : 'routes reviewed'} /></div>
+        <div className="mt-8 flex flex-wrap gap-5"><a href={project.link} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 text-sm font-bold text-[#315784] hover:gap-3">{labels.repository} <ExternalLink size={15} /></a>{project.demo && <a href={project.demo} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 text-sm font-bold text-[#21757d] hover:gap-3">{labels.site} <ArrowUpRight size={15} /></a>}</div></div>
+      </div>
+      <div className="bg-[#edf4ff] p-7 text-[#172033] sm:p-10">
+        <p className="text-xs font-bold tracking-[0.12em] text-[#315784] uppercase">{es ? 'Arquitectura' : 'Architecture'}</p>
+        <div className="mt-5 space-y-2 text-center text-xs font-bold"><ArchitectureNode icon={<Network size={17} />} label={es ? 'Cliente web' : 'Web client'} /><ArchitectureArrow /><ArchitectureNode icon={<Boxes size={17} />} label="Django · views / services / selectors" /><ArchitectureArrow /><div className="grid grid-cols-2 gap-2"><ArchitectureNode icon={<Network size={17} />} label="PostgreSQL" /><ArchitectureNode icon={<Network size={17} />} label="Google Books + LLM" /></div></div>
+        <div className="mt-8 border-t border-[#d9e4f2] pt-6"><p className="text-xs font-bold tracking-[0.12em] text-[#315784] uppercase">{es ? 'Calidad y entrega' : 'Quality & delivery'}</p><ul className="mt-4 space-y-3">{qualitySignals.map((signal) => <li key={signal} className="flex gap-2 text-sm font-semibold leading-5 text-[#3d4a5e]"><Check className="mt-0.5 shrink-0 text-[#21757d]" size={16} />{signal}</li>)}</ul></div>
+        <div className="mt-7 border-t border-[#d9e4f2] pt-6"><p className="text-xs font-bold tracking-[0.12em] text-[#315784] uppercase">{es ? 'Decisiones técnicas' : 'Technical decisions'}</p><div className="mt-4 space-y-3 text-sm leading-5 text-[#3d4a5e]"><p><strong className="text-[#172033]">{es ? 'Capas explícitas.' : 'Explicit layers.'}</strong> {es ? 'Las views gestionan HTTP; services concentran escrituras transaccionales y selectors las lecturas.' : 'Views handle HTTP; services centralize transactional writes and selectors own reads.'}</p><p><strong className="text-[#172033]">{es ? 'Pruebas aisladas.' : 'Isolated tests.'}</strong> {es ? 'La configuración de prueba evita credenciales y usa backends temporales para correo, media y dependencias externas.' : 'Test settings avoid credentials and use temporary backends for email, media, and external dependencies.'}</p><p><strong className="text-[#172033]">{es ? 'Entrega verificable.' : 'Verifiable delivery.'}</strong> {es ? 'El pipeline bloquea la publicación si fallan seguridad, calidad, cobertura o la comprobación de salud del contenedor.' : 'The pipeline blocks publication if security, quality, coverage, or container health checks fail.'}</p></div></div>
+      </div>
+    </div>
+  </article>
+}
+
+function ArchitectureNode({ icon, label }: { icon: React.ReactNode; label: string }) {
+  return <div className="flex min-h-12 items-center justify-center gap-2 rounded-xl border border-[#d9e4f2] bg-white px-3 py-2 text-[#315784] shadow-sm">{icon}<span>{label}</span></div>
+}
+
+function ArchitectureArrow() {
+  return <div className="flex h-4 items-center justify-center text-[#5180c2]">↓</div>
+}
+
+function Metric({ value, label }: { value: string; label: string }) {
+  return <div className="rounded-xl border border-white/70 bg-white/45 px-2 py-3 text-center"><p className="font-display text-2xl font-bold text-[#315784]">{value}</p><p className="mt-1 text-[10px] font-bold leading-3 text-[#566274]">{label}</p></div>
+}
+
+function AiProjects({ language, projects, labels }: { language: 'es' | 'en'; projects: Project[]; labels: LanguageContent['projectsSection'] }) {
+  const aiProjects = projects.filter((project) => ['Sistema Multiagente', 'Multi-agent System', 'InsightIQ', 'English News Summarization'].includes(project.title))
+  return <div className="mx-auto mt-20 max-w-6xl"><p className="eyebrow">AI Projects</p><h3 className="font-display text-3xl font-bold tracking-[-0.045em] text-[#101827]">{language === 'es' ? 'IA aplicada a productos y flujos de trabajo.' : 'AI applied to products and workflows.'}</h3><p className="mt-3 max-w-2xl text-sm leading-6 text-[#566274]">{language === 'es' ? 'Recomendaciones con proveedores LLM, automatización con agentes especializados y análisis asistido de datos.' : 'Recommendations with LLM providers, automation with specialized agents, and assisted data analysis.'}</p><div className="mt-8 grid gap-6 lg:grid-cols-3">{aiProjects.map((project) => <ProjectCard key={project.title} project={project} labels={labels} />)}</div></div>
 }
 
 function ProjectCard({ project, labels }: { project: Project; labels: LanguageContent['projectsSection'] }) {

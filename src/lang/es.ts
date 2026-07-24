@@ -35,14 +35,14 @@ export const es: LanguageContent = {
   navigation: { profile: 'Perfil técnico', projects: 'Proyectos', experience: 'Experiencia', contact: 'Contacto' },
   hero: {
     eyebrow: 'Ingeniero de software',
-    role: 'Ingeniero de Software Backend',
-    description: 'Experiencia desarrollando APIs REST, sistemas distribuidos, aplicaciones cloud-native y automatización de procesos con Python, Java, TypeScript, AWS, Docker y Kubernetes.',
+    role: 'Software Engineer',
+    description: 'Construyo sistemas backend escalables, aplicaciones cloud-native y software impulsado por IA.',
     viewProjects: 'Ver proyectos', downloadCv: 'Descargar CV', getInTouch: 'Hablemos', github: 'GitHub',
     backendFocus: 'Enfoque backend', nativeSpanish: 'Español nativo', englishB2: 'Inglés B2', location: 'Medellín, Colombia',
   },
   profile: {
-    eyebrow: 'Perfil profesional', title: 'Perfil técnico.',
-    description: 'Ingeniero de Software con experiencia profesional desarrollando soluciones escalables en backend, aplicaciones cloud-native y sistemas distribuidos. Diseño APIs REST, arquitecturas basadas en microservicios, pipelines CI/CD e integraciones de IA con Python, Java, TypeScript, AWS, Docker y Kubernetes.',
+    eyebrow: 'Perfil profesional', title: 'Ingeniería de software backend.',
+    description: 'EAFIT · Python · Java · Cloud · AWS · Microservicios. Diseño sistemas distribuidos, APIs y pipelines de entrega con foco en calidad, seguridad y mantenibilidad.',
     technologiesTitle: 'Tech Stack',
   },
   technologies: ['Python', 'Java', 'TypeScript', 'JavaScript', 'Spring Boot', 'Django', 'FastAPI', 'Next.js', 'Vue', 'React', 'PostgreSQL', 'MongoDB', 'MySQL', 'Redis', 'RabbitMQ', 'gRPC', 'AWS', 'Docker', 'Kubernetes', 'GitHub Actions', 'CI/CD', 'Git', 'REST API', 'OpenAPI', 'OAuth', 'JWT'],
