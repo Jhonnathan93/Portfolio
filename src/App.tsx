@@ -139,6 +139,17 @@ const projects = [
     color: 'bg-[#fff1cb]',
     accent: 'bg-[#ffbd0e]',
   },
+  {
+    title: 'English News Summarization',
+    subtitle: 'Resumen de noticias con LSTM y atención',
+    description:
+      'Notebook educativo que entrena un modelo sequence-to-sequence para resumir artículos en inglés del conjunto de datos CNN/DailyMail.',
+    impact: 'Encoder-decoder LSTM con atención, embeddings de spaCy y generación con greedy decoding y beam search.',
+    tags: ['Python', 'TensorFlow', 'Keras', 'NLP'],
+    link: 'https://github.com/Jhonnathan93/Applied-ML',
+    color: 'bg-[#e0eff0]',
+    accent: 'bg-[#32919a]',
+  },
 ]
 
 const experience = [
@@ -354,7 +365,7 @@ function ProjectCard({ title, subtitle, description, impact, tags, link, demo, c
           <div><p className="font-display text-3xl font-bold tracking-[-0.05em] text-[#101827]">{title}</p><p className="mt-1 text-sm font-bold text-[#4e5a6c]">{subtitle}</p></div>
         </div>
       </div>
-      <div className="p-7"><p className="text-sm leading-6 text-[#4e5a6c]">{description}</p><p className="mt-4 border-l-2 border-[#5180c2] pl-3 text-sm font-semibold leading-6 text-[#172033]">{impact}</p><div className="mt-6 flex flex-wrap gap-2">{tags.map((tag) => <span key={tag} className="rounded-md bg-[#f3f6fa] px-2.5 py-1 text-xs font-bold text-[#566274]">{tag}</span>)}</div><div className="mt-7 flex flex-wrap gap-x-5 gap-y-3"><a href={link} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 text-sm font-bold text-[#315784] transition group-hover:gap-3">Ver repositorio <ExternalLink size={15} /></a>{demo && <a href={demo} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 text-sm font-bold text-[#21757d] transition hover:gap-3">Ver sitio <ArrowUpRight size={15} /></a>}</div></div>
+      <div className="p-7"><p className="text-sm leading-6 text-[#4e5a6c]">{description}</p><p className="mt-4 border-l-2 border-[#5180c2] pl-3 text-sm font-semibold leading-6 text-[#172033]">{impact}</p><div className="mt-6 flex flex-wrap gap-2">{tags.map((tag) => <span key={tag} className="rounded-md bg-[#f3f6fa] px-2.5 py-1 text-xs font-bold text-[#566274]">{tag}</span>)}</div>{(link || demo) && <div className="mt-7 flex flex-wrap gap-x-5 gap-y-3">{link && <a href={link} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 text-sm font-bold text-[#315784] transition group-hover:gap-3">Ver repositorio <ExternalLink size={15} /></a>}{demo && <a href={demo} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 text-sm font-bold text-[#21757d] transition hover:gap-3">Ver sitio <ArrowUpRight size={15} /></a>}</div>}</div>
     </article>
   )
 }
